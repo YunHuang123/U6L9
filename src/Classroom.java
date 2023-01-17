@@ -21,13 +21,21 @@ public class Classroom
      */
     public boolean addStudent(Student student)
     {
+        int available = -1;
         for (int i = 0; i < classRoster.length; i ++)
         {
-            if ()
+            if (classRoster[i] == null)
             {
-
+                available = i;
+                break;
             }
         }
+        if (available != -1)
+        {
+            classRoster[available] = student;
+            return true;
+        }
+        return false;
     }
 
     /** Returns the class exam average determined by adding
@@ -36,7 +44,7 @@ public class Classroom
      */
     public double classExamAverage()
     {
-        /* implement me! */
+
     }
 
     /** Prints class roster by printing all non-null students
