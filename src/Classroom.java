@@ -44,7 +44,28 @@ public class Classroom
      */
     public double classExamAverage()
     {
-
+        int examCount = 0;
+        int examSum = 0;
+        for (Student student : classRoster)
+        {
+            if (student != null)
+            {
+                int[] scores = student.getExamScores();
+                examCount += scores.length;
+                for (int score : scores)
+                {
+                    examSum += score;
+                }
+            }
+        }
+        if (examCount > 0)
+        {
+            return (double) examSum / examCount;
+        }
+        else
+        {
+            return 0.0;
+        }
     }
 
     /** Prints class roster by printing all non-null students
@@ -54,6 +75,12 @@ public class Classroom
      */
     public void printRoster()
     {
-        /* implement me! */
+        for (Student student : classRoster)
+        {
+            if (student != null)
+            {
+                System.out.println(student.getLast() + ", " + student.getFirst());
+            }
+        }
     }
 }
